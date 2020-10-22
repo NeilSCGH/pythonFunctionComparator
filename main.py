@@ -2,10 +2,10 @@ import time
 import numpy as np
 
 def f1():
-    a=np.zeros(10000)
+    a=[0,0,0,0,0,0,0]
 
 def f2():
-    a=[0]*10000
+    a=[0]*7
 
 
 def diff():
@@ -13,18 +13,13 @@ def diff():
     return (counter1 - counter2)/(counter1 + counter2)
 
 def stillTesting():
-    if abs(diff()) > targetDiff: return False
-    if counter1<minTime and counter2<minTime: return True
-    if counter1>maxTime and counter2>maxTime: return False
-    if abs(diff())<targetDiff: return True
+    return counter1 + counter2<testTime
 
 
 #Params
 step=10000
 
-minTime=1
-maxTime=5
-targetDiff=0.10
+testTime=3
 
 #init
 n=0
@@ -49,8 +44,9 @@ print("{} runs".format(n))
 print("Total for f1: {} secs".format(round(counter1,3)))
 print("Total for f2: {} secs".format(round(counter2,3)))
 
+d=diff()
 print()
 if d<0:
-    print("Best: f1 ({}%)".format(-round(d*100)))
+    print("Best: f1 ({}%)".format(-round(d*100,2)))
 else:
-    print("Best: f2 ({}%)".format(round(d*100)))
+    print("Best: f2 ({}%)".format(round(d*100,2)))
