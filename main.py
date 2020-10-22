@@ -2,10 +2,10 @@ import time
 import numpy as np
 
 def f1():
-    a=[0,0,0,0,0,0,0]
+    a=[0]*50
 
 def f2():
-    a=[0]*7
+    a=np.zeros(50)
 
 
 def diff():
@@ -19,9 +19,10 @@ def stillTesting():
 #Params
 step=10000
 
-testTime=3
+testTime=10
 
 #init
+startTime=time.time()
 n=0
 counter1=0
 counter2=0
@@ -30,14 +31,14 @@ timer2 = 0
 
 while stillTesting():
     timer1 = time.time()
-    for i in range(step): f1()
+    f1()
     counter1 += time.time() - timer1
 
     timer2 = time.time()
-    for i in range(step): f2()
+    f2()
     counter2 += time.time() - timer2
 
-    n+=1*step
+    n+=1
 
 
 print("{} runs".format(n))
