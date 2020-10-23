@@ -1,13 +1,14 @@
 from core import *
 import numpy as np
+import random
 
 def f1():
-    a=2*2*2*2
+    a=np.random.random()
 
 def f2():
-    a=2**4
+    a=random.random()
 
 comp=comparator(f1, f2)
-comp.compare(testTime=1)
+comp.compare(testTime=5)
 
 comp.printResults(showDetails=True)
