@@ -12,35 +12,33 @@ def diff():
     if counter1 + counter2 == 0: return 0
     return (counter1 - counter2)/(counter1 + counter2)
 
-def stillTesting():
+def stillTesting(counter1, counter2, testTime):
     return counter1 + counter2<testTime
 
+def compare(function1, function2, testTime=5, step=10000):
 
-#Params
-step=10000
+    #init
+    startTime=time.time()
+    n=0
+    counter1=0
+    counter2=0
+    timer1 = 0
+    timer2 = 0
 
-testTime=10
+    while stillTesting(counter1, counter2, testTime):
+        timer1 = time.time()
+        f1()
+        counter1 += time.time() - timer1
 
-#init
-startTime=time.time()
-n=0
-counter1=0
-counter2=0
-timer1 = 0
-timer2 = 0
+        timer2 = time.time()
+        f2()
+        counter2 += time.time() - timer2
 
-while stillTesting():
-    timer1 = time.time()
-    f1()
-    counter1 += time.time() - timer1
+        n+=1
 
-    timer2 = time.time()
-    f2()
-    counter2 += time.time() - timer2
+    return n, counter1, counter2
 
-    n+=1
-
-
+n, counter1, counter2 = compare(f1, f2, 5)
 print("{} runs".format(n))
 print("Total for f1: {} secs".format(round(counter1,3)))
 print("Total for f2: {} secs".format(round(counter2,3)))
