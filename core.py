@@ -40,17 +40,19 @@ class comparator():
         d=round(self.diff()*100,2)
         return self.n, d ,round(self.counter1,3), round(self.counter2,3)
 
-    def printResults(self):
-        c1=round(self.counter1,3)
-        c2=round(self.counter2,3)
-        d=round(self.diff()*100,2)
+    def printResults(self, showDetails=True):
+        if showDetails:
+            c1=round(self.counter1,3)
+            c2=round(self.counter2,3)
+            print("{} runs".format(self.n))
+            print("Total for f1: {} secs".format(c1))
+            print("Total for f2: {} secs".format(c2))
+            print()
 
-        print("{} runs".format(self.n))
-        print("Total for f1: {} secs".format(c1))
-        print("Total for f2: {} secs".format(c2))
-
-        print()
-        if d<0:
-            print("Best: f1 ({}%)".format(-d))
+        f1Best= (self.diff()<0)
+        d=min(abs(self.diff()*10),1)
+        d=round(d*100)
+        if f1Best:
+            print("Best: f1 ({}%)".format(d))
         else:
             print("Best: f2 ({}%)".format(d))

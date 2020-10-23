@@ -2,12 +2,12 @@ from core import *
 import numpy as np
 
 def f1():
-    a=[0]*50
+    a=2*2*2*2
 
 def f2():
-    a=np.zeros(50)
+    a=2**4
 
 comp=comparator(f1, f2)
-comp.compare(1)
+comp.compare(testTime=1)
 
-comp.printResults()
+comp.printResults(showDetails=True)
