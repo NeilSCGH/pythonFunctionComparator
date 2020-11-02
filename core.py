@@ -53,8 +53,8 @@ class comparator():
         d=min(abs(self.diff()*10),1)
         d=round(d*100)
         if f1Best:
-            xTimeFaster=round(self.counter2/self.counter1,1)
+            xTimeFaster=round(self.counter2/self.counter1,2)
             print("Best: f1 ({}% sure, {} time faster)".format(d, xTimeFaster))
         else:
-            xTimeFaster=round(self.counter1/self.counter2,1)
+            xTimeFaster=round(self.counter1/self.counter2,2)
             print("Best: f2 ({}% sure, {} time faster)".format(d, xTimeFaster))
