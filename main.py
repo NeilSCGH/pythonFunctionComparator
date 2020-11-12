@@ -6,10 +6,10 @@ import os.path
 
 
 def f1():
-    a=25*25*25
+    a=np.random.random()
 
 def f2():
-    a=25**3
+    a=random.random()
 
 comp=core.comparator(f1, f2)
 comp.compare(testTime=5)

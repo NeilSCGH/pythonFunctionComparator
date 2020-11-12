@@ -18,6 +18,14 @@ a=[0]*50
 a=np.zeros(50)
 
 ###############################################
+##Faster
+a=random.random()
+
+##Slower
+#import numpy as np
+a=np.random.random()
+
+###############################################
 ##Identical
 a=25*25*25
 
