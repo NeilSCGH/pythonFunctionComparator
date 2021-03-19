@@ -1,15 +1,24 @@
 import core
-import numpy as np
-import random
-from pathlib import Path
-import os.path
 
+tab=["2015","1912","209f","neil"]
 
 def f1():
-    a=np.random.random()
+    for folder in tab:
+        valid=False
+        try:
+            a=int(folder)
+            valid = 1900<=a and a<=2099
+        except:pass
 
 def f2():
-    a=random.random()
+    for folder in tab:
+        try:
+            a=int(folder)
+            assert 1900<=a and a<=2099
+            valid = True
+        except:
+            valid=False
+
 
 comp=core.comparator(f1, f2)
 comp.compare(testTime=5)
